@@ -6,7 +6,10 @@
 
 
 // Summing an array of numbers:
+const nums = [0, 1, 2, 3, 4];
+let sum = nums.reduce((acc, curr) => acc + curr, 0); // the 0 is used as the initial value, otherwise the reduce method will take the first value of the array as the initial value.
 
+console.log(sum);
 
 const teamMembers = [
   {
