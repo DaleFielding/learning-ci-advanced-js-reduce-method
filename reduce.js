@@ -31,10 +31,28 @@ const teamMembers = [
     name: 'Kelly',
     profession: 'Designer',
     yrsExperience: 3
+  },
+  {
+    name: 'newPerson',
+    profession: 'newProfession',
+    yrsExperience: 3
   }
 ];
 
 // Totaling a specific object property
+let totalExperience = teamMembers.reduce((arr, curr) => arr + curr.yrsExperience, 0); // It would not work without the 0 in this example
+console.log(totalExperience);
 
 
 // Grouping by a property, and totaling it too
+  // Initially 'acc' is an empty object and 'curr' is the first team member in the array
+let experienceByProfession = teamMembers.reduce((acc, curr) => { 
+  if (!acc[curr.profession]) {
+    acc[curr.profession] = curr.yrsExperience; // Any new profession will be added to the accumulator and its value will be set to the TMs experience
+  } else {
+    acc[curr.profession] += curr.yrsExperience // The current TMs experience will be added to the already existing value
+  }
+  return acc;
+}, {})
+
+console.log(experienceByProfession);
